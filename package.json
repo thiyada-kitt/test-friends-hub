@@ -1,0 +1,31 @@
+{
+  "name": "test-friends-hub",
+  "version": "1.0.0",
+  "description": "Playwright-based test automation project for Friends Hub web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "allure:report": "allure generate allure-results --clean -o allure-report && allure open allure-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiyada-kitt/test-friends-hub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiyada-kitt/test-friends-hub/issues"
+  },
+  "homepage": "https://github.com/thiyada-kitt/test-friends-hub#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^24.3.0",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2"
+  }
+}

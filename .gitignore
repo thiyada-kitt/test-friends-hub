@@ -1,0 +1,59 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# IDE and Editor files
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Allure
+allure-results/
+allure-report/
+
+# Build outputs
+dist/
+build/
+
+# Package managers
+package-lock.json
+yarn.lock
+.yarn/*
+.pnp.*
+
+# Operating System
+*.swp
+*.swo
+Thumbs.db
+
+# Testing
+/test-output/
+junit.xml
+**/test-results/
+**/playwright/.auth/
+
+# Others
+.history/
+.tmp/
+tmp/
+temp/
