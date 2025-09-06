@@ -17,8 +17,20 @@ This project aims to ensure the functionality and reliability of the Friends Hub
 - Written in TypeScript for type safety and better maintainability  
 - Supports cross-browser testing
 - Generates detailed **Allure reports** with screenshots and videos for failed tests
-- Supports environments staging via `.env` files
+- Supports staging environments via `.env` configuration files 
 
+
+### Suggested Additions
+
+   **Current Scope:**
+   - This project currently covers UI E2E tests for selected stable features only.  
+    
+   **Future Enhancements:** 
+   - API tests may be added in the future to provide more reliable and comprehensive testing.  
+   - The project may be migrated to GitLab to enable CI/CD integration for fully automated test execution on each deployment.
+
+   > Recommended to run full E2E and regression tests on staging environment, not production.
+  
 ---
 
 ## Getting Started
@@ -52,7 +64,7 @@ npx playwright test
 ```
 ---
 
-### Usage
+### Commands
 
 Run all tests (headless mode)
 ```bash
@@ -60,7 +72,7 @@ npx playwright test
 ```
 Run a specific test file (headed mode)
 ```bash
-npx playwright show-report
+npx playwright test tests/file.spec.ts --headed
 ```
 Show last test report
 ```bash
@@ -112,5 +124,4 @@ Project structure
 ```
 
 
-**This project is for internal use only, please follow company guidelines.**
-> Recommended to run full E2E and regression tests on staging environment, not production.
+**⚠️  Proprietary / Internal Use Only**
