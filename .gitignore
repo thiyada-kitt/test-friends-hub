@@ -1,59 +1,61 @@
-
-# Playwright
+# ========== DEPENDENCIES ==========
 node_modules/
+
+# ========== PLAYWRIGHT TEST RESULTS ==========
 /test-results/
 /playwright-report/
 /blob-report/
-/playwright/.cache/
+/test-output/
+junit.xml
+playwright/.cache/
+playwright/downloads/
+playwright/artifacts/
+**/playwright/.auth/
 
-# IDE and Editor files
-.DS_Store
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-.idea/
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Coverage reports
-coverage/
-.nyc_output/
-
-# Allure
+# ========== ALLURE REPORTS ==========
 allure-results/
 allure-report/
 
-# Build outputs
-dist/
-build/
+# ========== ENVIRONMENT VARIABLES ==========
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
 
-# Package managers
-package-lock.json
-yarn.lock
-.yarn/*
-.pnp.*
-
-# Operating System
+# ========== IDE & EDITOR FILES ==========
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
 *.swp
 *.swo
+.history/
+
+# ========== LOGS ==========
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========== COVERAGE REPORTS ==========
+coverage/
+.nyc_output/
+
+# ========== BUILD OUTPUTS ==========
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# ========== OPERATING SYSTEM ==========
+.DS_Store
 Thumbs.db
 
-# Testing
-/test-output/
-junit.xml
-**/test-results/
-**/playwright/.auth/
-
-# Others
-.history/
-.tmp/
+# ========== TEMPORARY FILES ==========
 tmp/
 temp/
+*.tmp
+*.temp

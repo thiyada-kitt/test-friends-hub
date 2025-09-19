@@ -28,6 +28,9 @@ This project aims to ensure the functionality and reliability of the Friends Hub
    **Future Enhancements:** 
    - API tests may be added in the future to provide more reliable and comprehensive testing.  
    - The project may be migrated to GitLab to enable CI/CD integration for fully automated test execution on each deployment.
+   - Tagging and grouping of tests may be added to run selected test groups and reduce execution time as the site scales.
+   - Expand Test Coverage: Include registration, payments, and key negative/edge cases for better validation.
+   - Convert to POM structure in the future
 
    > Recommended to run full E2E and regression tests on staging environment, not production.
   
@@ -98,30 +101,12 @@ Open Allure report
 ```bash
 npx allure open allure-report
 ```
----
-
+Delete file report
 ```bash
-Project structure
-
-  tests/
-  - เก็บ ไฟล์ test spec โดยตรง
-  - เป็นไฟล์ที่ Playwright รันจริง ๆ
-  
-  pages/ (Page Object Model, POM)
-  - เก็บ class ที่แทนหน้าเว็บแต่ละหน้า
-  - รวม selector และ action ของหน้านั้น ๆ ไว้ ไม่ต้องเขียนซ้ำทุก test
-  - ทำให้ test อ่านง่ายขึ้น
-  
-  fixtures/
-  - เก็บข้อมูล หรือ environment setup
-  - เช่น test data, mock users, tokens, db connections, config
-  - ใช้สร้าง custom fixtures ให้ Playwright (เช่น login session, other session)
-  
-  helpers/
-  - เก็บฟังก์ชันทั่วไป ที่ใช้ซ้ำในหลาย test
-  - เช่น ฟังก์ชันจัดการ date, generate random data, validate responses, API call
-  - ลดการเขียนโค้ดซ้ำ และทำให้ test อ่านง่ายขึ้น
+find allure-results playwright-report test-results -type f -delete
 ```
+---
 
 
 **⚠️  Proprietary / Internal Use Only**
+> Do not distribute without permission.
