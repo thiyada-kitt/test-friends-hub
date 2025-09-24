@@ -21,7 +21,6 @@ test.describe.parallel('Register UI flow', () => {
     await openRegisterForm(page);
     await fillRegisterForm(page, 'testemail@gmail.com', '123456');
 
-    // ตรวจสอบว่า UI ของ login / register ยัง visible
     const loginForm = page.locator('.flex.flex-col.w-full.items-center.p-4');
     await loginForm.waitFor({ state: 'visible' });
     await expect(page.getByText('ยืนยันรหัสผ่าน')).toBeVisible();

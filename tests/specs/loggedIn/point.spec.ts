@@ -38,7 +38,6 @@ test.describe.serial('Home page after login', () => {
     await expect(page.getByRole('heading', { name: 'ชำระเงิน' })).toBeVisible();
     await page.getByRole('button', { name: 'ยืนยันการซื้อ' }).click();
 
-    // --- handle Stripe redirect ---
     await page.waitForURL(/stripe\.com/);
 
     // // กรอกข้อมูลบน Stripe

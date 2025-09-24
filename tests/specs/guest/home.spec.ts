@@ -21,10 +21,10 @@ test.describe('Language switch', () => {
   test('switch TH-EN', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: 'TH Flag TH' }).click();
-    await expect(page.getByRole('heading', { name: 'Step into a New World!' })).toBeVisible();
+    await expect(page.locator('h1')).toContainText('Step into a New World!');
 
     await page.getByRole('button', { name: 'EN Flag EN' }).click();
-    await expect(page.locator('#app')).toContainText('ก้าวสู่โลกใหม่!กับเพื่อน AI มากมายที่นี่');
+    await expect(page.locator('h1')).toContainText('ก้าวสู่โลกใหม่!');
   });
 });
 

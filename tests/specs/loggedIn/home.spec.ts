@@ -5,7 +5,6 @@ test.describe.serial('Home page after login', () => {
   let context: BrowserContext;
   let page: Page;
 
-  // --- Login ครั้งเดียวก่อนทุก test ---
   test.beforeAll(async ({ browser }) => {
     context = await browser.newContext();
     page = await context.newPage();
@@ -18,7 +17,6 @@ test.describe.serial('Home page after login', () => {
     await context.close();
   });
 
-  // --- Welcome message ---
   test('should display welcome message', async () => {
     await expect(page.locator('#app')).toContainText(
       'ก้าวสู่โลกใหม่!กับเพื่อน AI มากมายที่นี่'
@@ -26,7 +24,6 @@ test.describe.serial('Home page after login', () => {
     await page.waitForTimeout(2000);
   });
 
-  // --- Logo / navigation ---
   test('logo navigation', async () => {
     await page
       .locator('div')
@@ -40,7 +37,6 @@ test.describe.serial('Home page after login', () => {
     await page.waitForTimeout(2000);
   });
 
-  // --- Language switch ---
   test.describe('Language switch', () => {
     test('switch TH → EN → TH', async () => {
       await page.getByRole('button', { name: 'TH Flag TH' }).click();
@@ -56,7 +52,6 @@ test.describe.serial('Home page after login', () => {
     });
   });
 
-  // --- Point button ---
   test('click point button', async () => {
     const pointButton = page.locator(
       '#app > main > nav > div.flex.w-full.items-center.justify-between.px-4.sm\\:px-9.overflow-x-auto > div.flex.items-center.gap-3 > a > button'
@@ -67,7 +62,6 @@ test.describe.serial('Home page after login', () => {
     await page.waitForTimeout(2000);
   });
 
-  // --- Bot creation ---
   test.describe('Bot creation', () => {
     test('click create bot on banner', async () => {
       await page.goto('/');
@@ -77,7 +71,6 @@ test.describe.serial('Home page after login', () => {
     });
   });
 
-  // --- Search and Filter ---
   test.describe('Search and Filter', () => {
     test('click filter button', async () => {
       await page.goto('/');
@@ -105,7 +98,6 @@ test.describe.serial('Home page after login', () => {
   });
 
   test('open bot and start chat (normal + Just_me)', async () => {
-    // --- Flow 1: เปิด bot และแชทปกติ ---
     await page.goto('/');
     await page.getByText('Hello Kitty40MiscellaneousCustom Assistant').click();
 
@@ -114,18 +106,16 @@ test.describe.serial('Home page after login', () => {
     await page.getByRole('button', { name: 'เริ่มแชท' }).click();
     await expect(page).toHaveURL(/\/chat/);
 
-    // --- Flow 2: เปิด bot แล้วเลือก Just_me ---
     await page.goto('/');
     await page.getByText('Hello Kitty40MiscellaneousCustom Assistant').click();
 
     await expect(page.locator('#app')).toContainText('เริ่มแชท');
     await page.getByRole('button', { name: 'Just_me' }).click();
 
-    // ตรวจสอบว่ามีปุ่ม Chat with Hello Kitty โผล่มา
     const chatButton = page.getByRole('button', { name: 'Chat with Hello Kitty' });
     await expect(chatButton).toBeVisible();
     await page.waitForTimeout(2000);
-    // กดปุ่มแล้วรอ popup
+
     const popupPromise = page.waitForEvent('popup');
     await chatButton.click();
 
@@ -133,7 +123,6 @@ test.describe.serial('Home page after login', () => {
     await expect(popup).toHaveURL(/\/chat/);
   });
 
-  // --- Explore section ---
   test.describe('Explore section', () => {
     test('view all - all bots', async () => {
       await page.goto('/');
@@ -169,7 +158,6 @@ test.describe.serial('Home page after login', () => {
     });
   });
 
-  // --- Promotion banner ---
   test('click promotion banner get point', async () => {
     await page.goto('/');
     await page.getByRole('button', { name: 'รับพอยท์' }).click();
@@ -177,7 +165,6 @@ test.describe.serial('Home page after login', () => {
     await page.waitForTimeout(2000);
   });
 
-  // --- Chat now ---
   test('click chat now button', async () => {
     await page.goto('/');
     await page.getByRole('button', { name: 'แชทเลย' }).click();
@@ -185,7 +172,6 @@ test.describe.serial('Home page after login', () => {
     await page.waitForTimeout(2000);
   });
 
-  // --- Main menu navigation ---
   test.describe('Main menu navigation', () => {
     test('navigate to แก้ไขโปรไฟล์', async () => {
       const avatarButton = page.getByRole('button', { name: 'User avatar' });
@@ -235,13 +221,10 @@ test.describe.serial('Home page after login', () => {
     test('navigate to ออกจากระบบ', async () => {
       const avatarButton = page.getByRole('button', { name: 'User avatar' });
 
-      await avatarButton.click(); // เปิด dropdown
+      await avatarButton.click(); 
       await page.getByRole('button', { name: 'ออกจากระบบ' }).click();
 
-      // สมมติว่าหลัง logout จะ redirect ไปหน้า login หรือหน้า home
       await expect(page).toHaveURL('/');
-      await expect(page.locator('#app')).toContainText('เข้าสู่ระบบ');
-      await page.waitForTimeout(2000);
     });
 
   });

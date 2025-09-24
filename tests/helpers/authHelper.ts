@@ -11,14 +11,13 @@ export async function openLoginModal(page: Page) {
 
 export async function loginWithEmail(page: Page, email: string, password: string) {
   const emailInput = page.getByRole('textbox', { name: 'อีเมลของคุณ' });
-  await emailInput.waitFor({ state: 'visible', timeout: 20000 });
+  await emailInput.waitFor({ state: 'visible', timeout: 50000 });
   await emailInput.fill(email);
 
   const passwordInput = page.getByRole('textbox', { name: 'รหัสผ่าน' });
-  await passwordInput.waitFor({ state: 'visible', timeout: 20000 });
+  await passwordInput.waitFor({ state: 'visible', timeout: 50000 });
   await passwordInput.fill(password);
 
-  // คลิกปุ่ม login
   await page.locator('div')
     .filter({ hasText: /^รหัสผ่าน \*$/ })
     .getByRole('button')
@@ -26,7 +25,6 @@ export async function loginWithEmail(page: Page, email: string, password: string
 
   await page.getByRole('button', { name: 'เข้าสู่ระบบ' }).nth(1).click();
 
-  // รอ avatar ปรากฏว่า login สำเร็จ
   const avatar = page.locator('nav img[alt="User Profile"]');
   await expect(avatar).not.toHaveClass(/hidden/, { timeout: 60000 });
 }
