@@ -16,6 +16,7 @@ import path from 'path';
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 export default defineConfig({
+  globalSetup: './globalSetup.ts',
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -46,11 +47,28 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+    // {
+    //   name: 'chromium',
+    //   use: { ...devices['Desktop Chrome'] },
+    // },
 
+    {
+      name: 'loggedIn',
+      testDir: './tests/specs/loggedIn',
+      use: {
+        ignoreHTTPSErrors: true,
+        storageState: 'playwright/.auth/storageState.json',
+        ...devices['Desktop Chrome'],
+      },
+    },
+    {
+      name: 'guest',
+      testMatch: ['tests/specs/guest/*.spec.ts', 'tests/specs/auth/*.spec.ts'],
+      use: {
+        ignoreHTTPSErrors: true,
+        ...devices['Desktop Chrome'],
+      },
+    },
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },

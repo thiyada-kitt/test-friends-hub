@@ -104,6 +104,7 @@ npx allure open allure-report
 Delete file report
 ```bash
 find allure-results playwright-report test-results -type f -delete
+find playwright-report allure-results -type f -delete
 ```
 ---
 

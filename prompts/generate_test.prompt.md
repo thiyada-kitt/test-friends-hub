@@ -24,19 +24,22 @@ not access bot when click in card bot [guest] /
 sign up popup /
 sign in popup /
 
-Home new state navbar [logged in]
-search bot can click goto chat [logged in]
-category page - all, for you, popular can click goto chat [logged in]
-Filter page - main, sub category can click goto chat [logged in]
-can access bot [logged in]
 
-point - test on test mode strip [logged in]
-edit profile [logged in]
-create bot [logged in]
-chat [logged in]
-profile - mybot/fav [logged in]
+Home new state navbar [logged in] /
+search bot can click goto chat [logged in] /
+category page - all, for you, popular can click goto chat [logged in] /
+Filter page - main, sub category can click goto chat [logged in] /
+can access bot [logged in] /
+point - test on test mode strip [logged in] 
 
-switch TH-EN all pages [logged in]
+--------------------------------------------------
+edit profile [logged in] // skip 
+create bot [logged in] // skip 
+chat [logged in] // skip 
+profile - mybot/fav [logged in] // skip 
+
+switch TH-EN language
+
 
 **Constraints:**
 - Do not generate test code based on the scenario alone.
